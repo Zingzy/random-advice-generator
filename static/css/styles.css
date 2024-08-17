@@ -1,0 +1,105 @@
+body {
+    background-color: #09090b;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+}
+
+.advice-box {
+    background-color: #09090b;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    margin: 2.5rem 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: #232325 1px solid;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.advice-box.loading {
+    animation: loading-animation 1s infinite;
+}
+
+.options-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.utilities-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.btn {
+    background-color: #fafafa;
+    color: #000;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-mini {
+    display: flex;
+    padding: 0.5rem 1rem;
+    background-color: #09090b;
+    border: 1px solid #232325;
+    border-radius: 0.5rem;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.btn-mini:disabled {
+    cursor: not-allowed;
+}
+
+.btn-mini:hover {
+    background-color: #232325;
+}
+
+.btn-mini img {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.btn:disabled {
+    background-color: #e2e2e2;
+    cursor: not-allowed;
+}
+
+.btn:hover {
+    background-color: #e2e2e2;
+}
+
+.select-box {
+    background-color: #27272a;
+    color: #ffffff;
+    border-radius: 0.5rem;
+    padding: 15px 1.5rem;
+    border: none;
+    outline: none;
+    transition: background-color 0.3s ease;
+}
+
+@keyframes loading-animation {
+    0% {
+        background-color: #27272a;
+    }
+
+    50% {
+        background-color: #37373a;
+    }
+
+    100% {
+        background-color: #27272a;
+    }
+}

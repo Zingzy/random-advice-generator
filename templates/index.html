@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Advice Generator</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+    <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+</head>
+
+<body class="flex items-center justify-center min-h-screen p-4">
+    <div class="text-center w-full max-w-2xl">
+        <h1 class="text-4xl font-bold mb-6">Random Advice Generator</h1>
+        <div id="advice-box" class="advice-box loading"></div>
+        <div class="utilities-div mt-4">
+            <button id="copy-btn" class="btn-mini mb-4">
+                Copy <img src="{{ url_for('static', filename='images/copy.png') }}" />
+            </button>
+            <button id="read-aloud-btn" class="btn-mini mb-4">
+                Read Aloud <img src="{{ url_for('static', filename='images/read_aloud.png') }}" />
+            </button>
+        </div>
+        <div class="options-div mt-4">
+            <button id="generate-btn" class="btn">Generate New Advice</button>
+            <select id="category-select" class="select-box">
+                <option value="random">Random</option>
+            </select>
+        </div>
+    </div>
+
+    <script>
+        const copyBtn = document.getElementById('copy-btn');
+        const adviceBox = document.getElementById('advice-box');
+
+        // Copy to clipboard functionality
+        copyBtn.addEventListener('click', () => {
+            navigator.clipboard.writeText(adviceBox.textContent);
+            copyBtn.textContent = 'Copied!';
+            setTimeout(() => {
+                copyBtn.textContent = '';
+                copyBtn.innerHTML = 'Copy <img src="{{ url_for("static", filename="images/copy.png") }}" />';
+            }, 1000);
+        });
+    </script>
+
+</body>
+
+</html>
