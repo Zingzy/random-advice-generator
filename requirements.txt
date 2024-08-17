@@ -1,0 +1,7 @@
+Flask
+Flask-Cors
+pymongo
+python-dotenv
+requests
+gunicorn==22.0.0
+flask-caching
