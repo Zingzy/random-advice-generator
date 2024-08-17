@@ -8,15 +8,21 @@ body {
     background-color: #09090b;
     border-radius: 0.75rem;
     padding: 1.5rem;
-    margin: 2.5rem 0;
+    margin: 3.5rem 0;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border: #232325 1px solid;
     width: 100%;
-    height: auto;
+    height: 110px;
     display: flex;
     justify-content: center;
     align-items: center;
     transition: background-color 0.3s ease-in-out;
+    font-size: 1.5em;
+}
+
+.advice-box:hover {
+    border: 1px solid #454545;
+    cursor: default;
 }
 
 .advice-box.loading {

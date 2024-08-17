@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const category = categorySelect.value;
         const url = category === 'random' ? '/random' : `/random/${category}`;
 
-        await new Promise(resolve => setTimeout(resolve, 800));
+        await new Promise(resolve => setTimeout(resolve, 500));
 
         const adviceResponse = await fetch(url);
         const adviceData = await adviceResponse.json();
