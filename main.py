@@ -23,8 +23,14 @@ limiter = Limiter(
 
 CATEGORIES = ['creativity', 'finance', 'health_wellness', 'mindfulness', 'motivation', 'productivity', 'relationships']
 
+
+@app.route('/', methods=['GET'])
+def home():
+    return render_template('index.html')
+
+
 @app.route('/random', methods=['GET'])
-@limiter.limit("20 per minute")  # Rate limit: 20 requests per minute
+@limiter.limit("40 per minute")
 def get_random_advice():
     random_category = random.choice(CATEGORIES)
     collection = db[random_category]
@@ -35,7 +41,7 @@ def get_random_advice():
 
 
 @app.route('/random/<category>', methods=['GET'])
-@limiter.limit("20 per minute")  # Rate limit: 20 requests per minute
+@limiter.limit("40 per minute")
 def get_random_advice_by_category(category):
     if category not in CATEGORIES:
         return jsonify({"error": "Category not found"}), 404
@@ -47,7 +53,7 @@ def get_random_advice_by_category(category):
 
 
 @app.route('/categories', methods=['GET'])
-@limiter.limit("20 per minute")  # Rate limit: 20 requests per minute
+@limiter.limit("40 per minute")
 def get_categories():
     return jsonify({"categories": CATEGORIES, "total": len(CATEGORIES)})
 
